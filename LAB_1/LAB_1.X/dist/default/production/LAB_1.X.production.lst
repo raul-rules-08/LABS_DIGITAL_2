@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Sun Jan 31 22:08:34 2021
+                                                                                               Mon Feb 01 00:12:32 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -246,7 +246,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    232                           
    233  07FC                     __end_of__initialization:
    234  07FC  0183               	clrf	3
-   235  07FD  120A  118A  2F97   	ljmp	_main	;jump to C main() function
+   235  07FD  120A  118A  2F78   	ljmp	_main	;jump to C main() function
    236                           
    237                           	psect	bssCOMMON
    238  0070                     __pbssCOMMON:
@@ -291,7 +291,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    277  0076                     	ds	2
    278                           
    279                           	psect	maintext
-   280  0797                     __pmaintext:	
+   280  0778                     __pmaintext:	
    281 ;;
    282 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
    283 ;;
@@ -329,692 +329,791 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    315                           
    316                           
    317                           ;psect for function _main
-   318  0797                     _main:
-   319  0797                     l754:	
+   318  0778                     _main:
+   319  0778                     l769:	
    320                           ;incstack = 0
    321                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
    322                           
    323                           
    324                           ;SPEED_RACE_8.c: 46:     config();
-   325  0797  120A  118A  26DA  120A  118A  	fcall	_config
-   326  079C                     l756:
+   325  0778  120A  118A  26A7  120A  118A  	fcall	_config
+   326  077D                     l771:
    327                           
    328                           ;SPEED_RACE_8.c: 48:     if (PORTEbits.RE0 == 1){
-   329  079C  1283               	bcf	3,5	;RP0=0, select bank0
-   330  079D  1303               	bcf	3,6	;RP1=0, select bank0
-   331  079E  1C09               	btfss	9,0	;volatile
-   332  079F  2FA1               	goto	u151
-   333  07A0  2FA2               	goto	u150
-   334  07A1                     u151:
-   335  07A1  2FF5               	goto	l54
-   336  07A2                     u150:
-   337  07A2                     l758:
+   329  077D  1283               	bcf	3,5	;RP0=0, select bank0
+   330  077E  1303               	bcf	3,6	;RP1=0, select bank0
+   331  077F  1C09               	btfss	9,0	;volatile
+   332  0780  2F82               	goto	u171
+   333  0781  2F83               	goto	u170
+   334  0782                     u171:
+   335  0782  2FF5               	goto	l59
+   336  0783                     u170:
+   337  0783                     l773:
    338                           
    339                           ;SPEED_RACE_8.c: 49:         LIGTHS_OUT();
-   340  07A2  120A  118A  26ED  120A  118A  	fcall	_LIGTHS_OUT
-   341  07A7                     l760:
+   340  0783  120A  118A  26BA  120A  118A  	fcall	_LIGTHS_OUT
+   341  0788                     l775:
    342                           
    343                           ;SPEED_RACE_8.c: 50:         if(PORTBbits.RB2 == 1){
-   344  07A7  1283               	bcf	3,5	;RP0=0, select bank0
-   345  07A8  1303               	bcf	3,6	;RP1=0, select bank0
-   346  07A9  1D06               	btfss	6,2	;volatile
-   347  07AA  2FAC               	goto	u161
-   348  07AB  2FAD               	goto	u160
-   349  07AC                     u161:
-   350  07AC  2FF5               	goto	l54
-   351  07AD                     u160:
-   352  07AD  2FDA               	goto	l778
-   353  07AE                     l764:
+   344  0788  1283               	bcf	3,5	;RP0=0, select bank0
+   345  0789  1303               	bcf	3,6	;RP1=0, select bank0
+   346  078A  1D06               	btfss	6,2	;volatile
+   347  078B  2F8D               	goto	u181
+   348  078C  2F8E               	goto	u180
+   349  078D                     u181:
+   350  078D  2FF5               	goto	l59
+   351  078E                     u180:
+   352  078E  2FDA               	goto	l797
+   353  078F                     l779:
    354                           
    355                           ;SPEED_RACE_8.c: 52:                 _delay((unsigned long)((30)*(8000000/4000.0)));
-   356  07AE  304E               	movlw	78
-   357  07AF  00F7               	movwf	??_main+1
-   358  07B0  30EB               	movlw	235
-   359  07B1  00F6               	movwf	??_main
-   360  07B2                     u217:
-   361  07B2  0BF6               	decfsz	??_main,f
-   362  07B3  2FB2               	goto	u217
-   363  07B4  0BF7               	decfsz	??_main+1,f
-   364  07B5  2FB2               	goto	u217
-   365  07B6                     l766:
+   356  078F  304E               	movlw	78
+   357  0790  00F7               	movwf	??_main+1
+   358  0791  30EB               	movlw	235
+   359  0792  00F6               	movwf	??_main
+   360  0793                     u287:
+   361  0793  0BF6               	decfsz	??_main,f
+   362  0794  2F93               	goto	u287
+   363  0795  0BF7               	decfsz	??_main+1,f
+   364  0796  2F93               	goto	u287
+   365  0797                     l781:
    366                           
    367                           ;SPEED_RACE_8.c: 53:                 if (PORTCbits.RC0 == 1){
-   368  07B6  1283               	bcf	3,5	;RP0=0, select bank0
-   369  07B7  1303               	bcf	3,6	;RP1=0, select bank0
-   370  07B8  1C07               	btfss	7,0	;volatile
-   371  07B9  2FBB               	goto	u171
-   372  07BA  2FBC               	goto	u170
-   373  07BB                     u171:
-   374  07BB  2FC4               	goto	l770
-   375  07BC                     u170:
-   376  07BC                     l768:
+   368  0797  1283               	bcf	3,5	;RP0=0, select bank0
+   369  0798  1303               	bcf	3,6	;RP1=0, select bank0
+   370  0799  1C07               	btfss	7,0	;volatile
+   371  079A  2F9C               	goto	u191
+   372  079B  2F9D               	goto	u190
+   373  079C                     u191:
+   374  079C  2FA5               	goto	l785
+   375  079D                     u190:
+   376  079D                     l783:
    377                           
    378                           ;SPEED_RACE_8.c: 54:                     cont = cont+1;
-   379  07BC  0872               	movf	_cont,w
-   380  07BD  3E01               	addlw	1
-   381  07BE  00F2               	movwf	_cont
-   382  07BF  0873               	movf	_cont+1,w
-   383  07C0  1803               	skipnc
-   384  07C1  3E01               	addlw	1
-   385  07C2  3E00               	addlw	0
-   386  07C3  00F3               	movwf	_cont+1
-   387  07C4                     l770:
+   379  079D  0872               	movf	_cont,w
+   380  079E  3E01               	addlw	1
+   381  079F  00F2               	movwf	_cont
+   382  07A0  0873               	movf	_cont+1,w
+   383  07A1  1803               	skipnc
+   384  07A2  3E01               	addlw	1
+   385  07A3  3E00               	addlw	0
+   386  07A4  00F3               	movwf	_cont+1
+   387  07A5                     l785:
    388                           
    389                           ;SPEED_RACE_8.c: 56:                 if (PORTDbits.RD0 == 1){
-   390  07C4  1C08               	btfss	8,0	;volatile
-   391  07C5  2FC7               	goto	u181
-   392  07C6  2FC8               	goto	u180
-   393  07C7                     u181:
-   394  07C7  2FD0               	goto	l774
-   395  07C8                     u180:
-   396  07C8                     l772:
+   390  07A5  1C08               	btfss	8,0	;volatile
+   391  07A6  2FA8               	goto	u201
+   392  07A7  2FA9               	goto	u200
+   393  07A8                     u201:
+   394  07A8  2FB1               	goto	l50
+   395  07A9                     u200:
+   396  07A9                     l787:
    397                           
    398                           ;SPEED_RACE_8.c: 57:                     cont2 = cont2+1;
-   399  07C8  0870               	movf	_cont2,w
-   400  07C9  3E01               	addlw	1
-   401  07CA  00F0               	movwf	_cont2
-   402  07CB  0871               	movf	_cont2+1,w
-   403  07CC  1803               	skipnc
-   404  07CD  3E01               	addlw	1
-   405  07CE  3E00               	addlw	0
-   406  07CF  00F1               	movwf	_cont2+1
-   407  07D0                     l774:
-   408                           
-   409                           ;SPEED_RACE_8.c: 59:             PLAYER_1();
-   410  07D0  120A  118A  270B  120A  118A  	fcall	_PLAYER_1
-   411  07D5                     l776:
-   412                           
-   413                           ;SPEED_RACE_8.c: 60:             PLAYER_2();
-   414  07D5  120A  118A  2751  120A  118A  	fcall	_PLAYER_2
-   415  07DA                     l778:
-   416                           
-   417                           ;SPEED_RACE_8.c: 51:             while ( cont < 8 && cont2 < 8) {
-   418  07DA  0873               	movf	_cont+1,w
-   419  07DB  3A80               	xorlw	128
-   420  07DC  00FF               	movwf	btemp+1
-   421  07DD  3080               	movlw	128
-   422  07DE  027F               	subwf	btemp+1,w
-   423  07DF  1D03               	skipz
-   424  07E0  2FE3               	goto	u195
-   425  07E1  3008               	movlw	8
-   426  07E2  0272               	subwf	_cont,w
-   427  07E3                     u195:
-   428  07E3  1803               	skipnc
-   429  07E4  2FE6               	goto	u191
-   430  07E5  2FE7               	goto	u190
-   431  07E6                     u191:
-   432  07E6  2FF5               	goto	l46
-   433  07E7                     u190:
-   434  07E7                     l780:
-   435  07E7  0871               	movf	_cont2+1,w
-   436  07E8  3A80               	xorlw	128
-   437  07E9  00FF               	movwf	btemp+1
-   438  07EA  3080               	movlw	128
-   439  07EB  027F               	subwf	btemp+1,w
-   440  07EC  1D03               	skipz
-   441  07ED  2FF0               	goto	u205
-   442  07EE  3008               	movlw	8
-   443  07EF  0270               	subwf	_cont2,w
-   444  07F0                     u205:
-   445  07F0  1C03               	skipc
-   446  07F1  2FF3               	goto	u201
-   447  07F2  2FF4               	goto	u200
-   448  07F3                     u201:
-   449  07F3  2FAE               	goto	l764
-   450  07F4                     u200:
-   451  07F4  2FF5               	goto	l54
-   452  07F5                     l46:	
-   453                           ;SPEED_RACE_8.c: 63:         }
-   454                           
-   455  07F5                     l54:
-   456  07F5  120A  118A  2800   	ljmp	start
-   457  07F8                     __end_of_main:
-   458                           
-   459                           	psect	text1
-   460  06DA                     __ptext1:	
-   461 ;; *************** function _config *****************
-   462 ;; Defined at:
-   463 ;;		line 69 in file "SPEED_RACE_8.c"
-   464 ;; Parameters:    Size  Location     Type
-   465 ;;		None
-   466 ;; Auto vars:     Size  Location     Type
-   467 ;;		None
-   468 ;; Return value:  Size  Location     Type
-   469 ;;                  1    wreg      void 
-   470 ;; Registers used:
-   471 ;;		wreg, status,2
-   472 ;; Tracked objects:
-   473 ;;		On entry : 0/0
-   474 ;;		On exit  : 0/0
-   475 ;;		Unchanged: 0/0
-   476 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   477 ;;      Params:         0       0       0       0       0
-   478 ;;      Locals:         0       0       0       0       0
-   479 ;;      Temps:          0       0       0       0       0
-   480 ;;      Totals:         0       0       0       0       0
-   481 ;;Total ram usage:        0 bytes
-   482 ;; Hardware stack levels used:    1
-   483 ;; This function calls:
-   484 ;;		Nothing
-   485 ;; This function is called by:
-   486 ;;		_main
-   487 ;; This function uses a non-reentrant model
-   488 ;;
-   489                           
-   490                           
-   491                           ;psect for function _config
-   492  06DA                     _config:
-   493  06DA                     l672:	
-   494                           ;incstack = 0
-   495                           ; Regs used in _config: [wreg+status,2]
-   496                           
-   497                           
-   498                           ;SPEED_RACE_8.c: 71:         ANSELH = 0 ;
-   499  06DA  1683               	bsf	3,5	;RP0=1, select bank3
-   500  06DB  1703               	bsf	3,6	;RP1=1, select bank3
-   501  06DC  0189               	clrf	9	;volatile
-   502                           
-   503                           ;SPEED_RACE_8.c: 72:         ANSEL = 0 ;
-   504  06DD  0188               	clrf	8	;volatile
-   505                           
-   506                           ;SPEED_RACE_8.c: 73:         TRISB = 0 ;
-   507  06DE  1683               	bsf	3,5	;RP0=1, select bank1
-   508  06DF  1303               	bcf	3,6	;RP1=0, select bank1
-   509  06E0  0186               	clrf	6	;volatile
-   510  06E1                     l674:
-   511                           
-   512                           ;SPEED_RACE_8.c: 75:         TRISD = 0b00000001;
-   513  06E1  3001               	movlw	1
-   514  06E2  0088               	movwf	8	;volatile
-   515  06E3                     l676:
-   516                           
-   517                           ;SPEED_RACE_8.c: 76:         TRISC = 0b00000001;
-   518  06E3  3001               	movlw	1
-   519  06E4  0087               	movwf	7	;volatile
-   520  06E5                     l678:
+   399  07A9  0870               	movf	_cont2,w
+   400  07AA  3E01               	addlw	1
+   401  07AB  00F0               	movwf	_cont2
+   402  07AC  0871               	movf	_cont2+1,w
+   403  07AD  1803               	skipnc
+   404  07AE  3E01               	addlw	1
+   405  07AF  3E00               	addlw	0
+   406  07B0  00F1               	movwf	_cont2+1
+   407  07B1                     l50:	
+   408                           ;SPEED_RACE_8.c: 58:                  }
+   409                           
+   410                           
+   411                           ;SPEED_RACE_8.c: 61:                 if (PORTBbits.RB3 == 0 & PORTBbits.RB4 == 0)
+   412  07B1  1E06               	btfss	6,4	;volatile
+   413  07B2  2FB4               	goto	u211
+   414  07B3  2FB6               	goto	u210
+   415  07B4                     u211:
+   416  07B4  3001               	movlw	1
+   417  07B5  2FB7               	goto	u212
+   418  07B6                     u210:
+   419  07B6  3000               	movlw	0
+   420  07B7                     u212:
+   421  07B7  00F6               	movwf	??_main
+   422  07B8  1D86               	btfss	6,3	;volatile
+   423  07B9  2FBB               	goto	u221
+   424  07BA  2FBD               	goto	u220
+   425  07BB                     u221:
+   426  07BB  3001               	movlw	1
+   427  07BC  2FBE               	goto	u222
+   428  07BD                     u220:
+   429  07BD  3000               	movlw	0
+   430  07BE                     u222:
+   431  07BE  0576               	andwf	??_main,w
+   432  07BF  3800               	iorlw	0
+   433  07C0  1903               	skipnz
+   434  07C1  2FC3               	goto	u231
+   435  07C2  2FC4               	goto	u230
+   436  07C3                     u231:
+   437  07C3  2FDA               	goto	l797
+   438  07C4                     u230:
+   439  07C4                     l789:
+   440                           
+   441                           ;SPEED_RACE_8.c: 62:     {;SPEED_RACE_8.c: 63:         if (PORTBbits.RB3 == 1)
+   442  07C4  1D86               	btfss	6,3	;volatile
+   443  07C5  2FC7               	goto	u241
+   444  07C6  2FC8               	goto	u240
+   445  07C7                     u241:
+   446  07C7  2FCA               	goto	l52
+   447  07C8                     u240:
+   448  07C8                     l791:
+   449                           
+   450                           ;SPEED_RACE_8.c: 64:         {;SPEED_RACE_8.c: 65:             PORTDbits.RD0 = 0;
+   451  07C8  1008               	bcf	8,0	;volatile
+   452                           
+   453                           ;SPEED_RACE_8.c: 66:        }
+   454  07C9  2FDA               	goto	l797
+   455  07CA                     l52:	
+   456                           ;SPEED_RACE_8.c: 67:         else if (PORTBbits.RB4 == 1)
+   457                           
+   458  07CA  1E06               	btfss	6,4	;volatile
+   459  07CB  2FCD               	goto	u251
+   460  07CC  2FCE               	goto	u250
+   461  07CD                     u251:
+   462  07CD  2FD0               	goto	l795
+   463  07CE                     u250:
+   464  07CE                     l793:
+   465                           
+   466                           ;SPEED_RACE_8.c: 68:        {;SPEED_RACE_8.c: 69:             PORTCbits.RC0 =0;
+   467  07CE  1007               	bcf	7,0	;volatile
+   468                           
+   469                           ;SPEED_RACE_8.c: 70:         }
+   470  07CF  2FDA               	goto	l797
+   471  07D0                     l795:
+   472                           
+   473                           ;SPEED_RACE_8.c: 72:         {;SPEED_RACE_8.c: 73:            PLAYER_1();
+   474  07D0  120A  118A  26D8  120A  118A  	fcall	_PLAYER_1
+   475                           
+   476                           ;SPEED_RACE_8.c: 74:            PLAYER_2();
+   477  07D5  120A  118A  2728  120A  118A  	fcall	_PLAYER_2
+   478  07DA                     l797:
+   479                           
+   480                           ;SPEED_RACE_8.c: 51:             while ( cont <= 8 && cont2 <= 8) {
+   481  07DA  0873               	movf	_cont+1,w
+   482  07DB  3A80               	xorlw	128
+   483  07DC  00FF               	movwf	btemp+1
+   484  07DD  3080               	movlw	128
+   485  07DE  027F               	subwf	btemp+1,w
+   486  07DF  1D03               	skipz
+   487  07E0  2FE3               	goto	u265
+   488  07E1  3009               	movlw	9
+   489  07E2  0272               	subwf	_cont,w
+   490  07E3                     u265:
+   491  07E3  1803               	skipnc
+   492  07E4  2FE6               	goto	u261
+   493  07E5  2FE7               	goto	u260
+   494  07E6                     u261:
+   495  07E6  2FF5               	goto	l46
+   496  07E7                     u260:
+   497  07E7                     l799:
+   498  07E7  0871               	movf	_cont2+1,w
+   499  07E8  3A80               	xorlw	128
+   500  07E9  00FF               	movwf	btemp+1
+   501  07EA  3080               	movlw	128
+   502  07EB  027F               	subwf	btemp+1,w
+   503  07EC  1D03               	skipz
+   504  07ED  2FF0               	goto	u275
+   505  07EE  3009               	movlw	9
+   506  07EF  0270               	subwf	_cont2,w
+   507  07F0                     u275:
+   508  07F0  1C03               	skipc
+   509  07F1  2FF3               	goto	u271
+   510  07F2  2FF4               	goto	u270
+   511  07F3                     u271:
+   512  07F3  2F8F               	goto	l779
+   513  07F4                     u270:
+   514  07F4  2FF5               	goto	l59
+   515  07F5                     l46:	
+   516                           ;SPEED_RACE_8.c: 79:         }
+   517                           
+   518  07F5                     l59:
+   519  07F5  120A  118A  2800   	ljmp	start
+   520  07F8                     __end_of_main:
    521                           
-   522                           ;SPEED_RACE_8.c: 77:         TRISE = 0b001;
-   523  06E5  3001               	movlw	1
-   524  06E6  0089               	movwf	9	;volatile
-   525  06E7                     l680:
-   526                           
-   527                           ;SPEED_RACE_8.c: 79:         PORTB = 0 ;
-   528  06E7  1283               	bcf	3,5	;RP0=0, select bank0
-   529  06E8  1303               	bcf	3,6	;RP1=0, select bank0
-   530  06E9  0186               	clrf	6	;volatile
-   531  06EA                     l682:
-   532                           
-   533                           ;SPEED_RACE_8.c: 80:         PORTC = 0 ;
-   534  06EA  0187               	clrf	7	;volatile
-   535  06EB                     l684:
-   536                           
-   537                           ;SPEED_RACE_8.c: 81:         PORTD = 0 ;
-   538  06EB  0188               	clrf	8	;volatile
-   539  06EC                     l57:
-   540  06EC  0008               	return
-   541  06ED                     __end_of_config:
-   542                           
-   543                           	psect	text2
-   544  0751                     __ptext2:	
-   545 ;; *************** function _PLAYER_2 *****************
-   546 ;; Defined at:
-   547 ;;		line 124 in file "SPEED_RACE_8.c"
-   548 ;; Parameters:    Size  Location     Type
-   549 ;;		None
-   550 ;; Auto vars:     Size  Location     Type
-   551 ;;		None
-   552 ;; Return value:  Size  Location     Type
-   553 ;;                  1    wreg      void 
-   554 ;; Registers used:
-   555 ;;		wreg, status,2, status,0
-   556 ;; Tracked objects:
-   557 ;;		On entry : 0/0
-   558 ;;		On exit  : 0/0
-   559 ;;		Unchanged: 0/0
-   560 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   561 ;;      Params:         0       0       0       0       0
-   562 ;;      Locals:         0       0       0       0       0
-   563 ;;      Temps:          0       0       0       0       0
-   564 ;;      Totals:         0       0       0       0       0
-   565 ;;Total ram usage:        0 bytes
-   566 ;; Hardware stack levels used:    1
-   567 ;; This function calls:
-   568 ;;		Nothing
-   569 ;; This function is called by:
-   570 ;;		_main
-   571 ;; This function uses a non-reentrant model
-   572 ;;
-   573                           
+   522                           	psect	text1
+   523  06A7                     __ptext1:	
+   524 ;; *************** function _config *****************
+   525 ;; Defined at:
+   526 ;;		line 87 in file "SPEED_RACE_8.c"
+   527 ;; Parameters:    Size  Location     Type
+   528 ;;		None
+   529 ;; Auto vars:     Size  Location     Type
+   530 ;;		None
+   531 ;; Return value:  Size  Location     Type
+   532 ;;                  1    wreg      void 
+   533 ;; Registers used:
+   534 ;;		wreg, status,2
+   535 ;; Tracked objects:
+   536 ;;		On entry : 0/0
+   537 ;;		On exit  : 0/0
+   538 ;;		Unchanged: 0/0
+   539 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   540 ;;      Params:         0       0       0       0       0
+   541 ;;      Locals:         0       0       0       0       0
+   542 ;;      Temps:          0       0       0       0       0
+   543 ;;      Totals:         0       0       0       0       0
+   544 ;;Total ram usage:        0 bytes
+   545 ;; Hardware stack levels used:    1
+   546 ;; This function calls:
+   547 ;;		Nothing
+   548 ;; This function is called by:
+   549 ;;		_main
+   550 ;; This function uses a non-reentrant model
+   551 ;;
+   552                           
+   553                           
+   554                           ;psect for function _config
+   555  06A7                     _config:
+   556  06A7                     l679:	
+   557                           ;incstack = 0
+   558                           ; Regs used in _config: [wreg+status,2]
+   559                           
+   560                           
+   561                           ;SPEED_RACE_8.c: 89:         ANSELH = 0 ;
+   562  06A7  1683               	bsf	3,5	;RP0=1, select bank3
+   563  06A8  1703               	bsf	3,6	;RP1=1, select bank3
+   564  06A9  0189               	clrf	9	;volatile
+   565                           
+   566                           ;SPEED_RACE_8.c: 90:         ANSEL = 0 ;
+   567  06AA  0188               	clrf	8	;volatile
+   568                           
+   569                           ;SPEED_RACE_8.c: 91:         TRISB = 0 ;
+   570  06AB  1683               	bsf	3,5	;RP0=1, select bank1
+   571  06AC  1303               	bcf	3,6	;RP1=0, select bank1
+   572  06AD  0186               	clrf	6	;volatile
+   573  06AE                     l681:
    574                           
-   575                           ;psect for function _PLAYER_2
-   576  0751                     _PLAYER_2:
-   577  0751                     l726:	
-   578                           ;incstack = 0
-   579                           ; Regs used in _PLAYER_2: [wreg+status,2+status,0]
-   580                           
-   581                           
-   582                           ;SPEED_RACE_8.c: 126:             if (cont2 == 1){
-   583  0751  0370               	decf	_cont2,w
-   584  0752  0471               	iorwf	_cont2+1,w
-   585  0753  1D03               	btfss	3,2
-   586  0754  2F56               	goto	u81
-   587  0755  2F57               	goto	u80
-   588  0756                     u81:
-   589  0756  2F5A               	goto	l730
-   590  0757                     u80:
-   591  0757                     l728:
-   592                           
-   593                           ;SPEED_RACE_8.c: 127:                 PORTDbits.RD1 = 1;
-   594  0757  1283               	bcf	3,5	;RP0=0, select bank0
-   595  0758  1303               	bcf	3,6	;RP1=0, select bank0
-   596  0759  1488               	bsf	8,1	;volatile
-   597  075A                     l730:
-   598                           
-   599                           ;SPEED_RACE_8.c: 129:             if (cont2 == 2){
-   600  075A  3002               	movlw	2
-   601  075B  0670               	xorwf	_cont2,w
-   602  075C  0471               	iorwf	_cont2+1,w
-   603  075D  1D03               	btfss	3,2
-   604  075E  2F60               	goto	u91
-   605  075F  2F61               	goto	u90
-   606  0760                     u91:
-   607  0760  2F64               	goto	l734
-   608  0761                     u90:
-   609  0761                     l732:
-   610                           
-   611                           ;SPEED_RACE_8.c: 130:                 PORTDbits.RD2 = 1;
-   612  0761  1283               	bcf	3,5	;RP0=0, select bank0
-   613  0762  1303               	bcf	3,6	;RP1=0, select bank0
-   614  0763  1508               	bsf	8,2	;volatile
-   615  0764                     l734:
-   616                           
-   617                           ;SPEED_RACE_8.c: 132:             if (cont2 == 3){
-   618  0764  3003               	movlw	3
-   619  0765  0670               	xorwf	_cont2,w
-   620  0766  0471               	iorwf	_cont2+1,w
-   621  0767  1D03               	btfss	3,2
-   622  0768  2F6A               	goto	u101
-   623  0769  2F6B               	goto	u100
-   624  076A                     u101:
-   625  076A  2F6E               	goto	l738
-   626  076B                     u100:
-   627  076B                     l736:
-   628                           
-   629                           ;SPEED_RACE_8.c: 133:                 PORTDbits.RD3 = 1;
-   630  076B  1283               	bcf	3,5	;RP0=0, select bank0
-   631  076C  1303               	bcf	3,6	;RP1=0, select bank0
-   632  076D  1588               	bsf	8,3	;volatile
-   633  076E                     l738:
-   634                           
-   635                           ;SPEED_RACE_8.c: 135:             if (cont2 == 4){
-   636  076E  3004               	movlw	4
-   637  076F  0670               	xorwf	_cont2,w
-   638  0770  0471               	iorwf	_cont2+1,w
-   639  0771  1D03               	btfss	3,2
-   640  0772  2F74               	goto	u111
-   641  0773  2F75               	goto	u110
-   642  0774                     u111:
-   643  0774  2F78               	goto	l742
-   644  0775                     u110:
-   645  0775                     l740:
-   646                           
-   647                           ;SPEED_RACE_8.c: 136:                 PORTDbits.RD4 = 1;
-   648  0775  1283               	bcf	3,5	;RP0=0, select bank0
-   649  0776  1303               	bcf	3,6	;RP1=0, select bank0
-   650  0777  1608               	bsf	8,4	;volatile
-   651  0778                     l742:
-   652                           
-   653                           ;SPEED_RACE_8.c: 138:             if (cont2 == 5){
-   654  0778  3005               	movlw	5
-   655  0779  0670               	xorwf	_cont2,w
-   656  077A  0471               	iorwf	_cont2+1,w
-   657  077B  1D03               	btfss	3,2
-   658  077C  2F7E               	goto	u121
-   659  077D  2F7F               	goto	u120
-   660  077E                     u121:
-   661  077E  2F82               	goto	l746
-   662  077F                     u120:
-   663  077F                     l744:
-   664                           
-   665                           ;SPEED_RACE_8.c: 139:                 PORTDbits.RD5 = 1;
-   666  077F  1283               	bcf	3,5	;RP0=0, select bank0
-   667  0780  1303               	bcf	3,6	;RP1=0, select bank0
-   668  0781  1688               	bsf	8,5	;volatile
-   669  0782                     l746:
-   670                           
-   671                           ;SPEED_RACE_8.c: 141:             if (cont2 == 6){
-   672  0782  3006               	movlw	6
-   673  0783  0670               	xorwf	_cont2,w
-   674  0784  0471               	iorwf	_cont2+1,w
-   675  0785  1D03               	btfss	3,2
-   676  0786  2F88               	goto	u131
-   677  0787  2F89               	goto	u130
-   678  0788                     u131:
-   679  0788  2F8C               	goto	l750
-   680  0789                     u130:
-   681  0789                     l748:
-   682                           
-   683                           ;SPEED_RACE_8.c: 142:                 PORTDbits.RD6 = 1;
-   684  0789  1283               	bcf	3,5	;RP0=0, select bank0
-   685  078A  1303               	bcf	3,6	;RP1=0, select bank0
-   686  078B  1708               	bsf	8,6	;volatile
-   687  078C                     l750:
-   688                           
-   689                           ;SPEED_RACE_8.c: 144:             if (cont2 == 7){
-   690  078C  3007               	movlw	7
-   691  078D  0670               	xorwf	_cont2,w
-   692  078E  0471               	iorwf	_cont2+1,w
-   693  078F  1D03               	btfss	3,2
-   694  0790  2F92               	goto	u141
-   695  0791  2F93               	goto	u140
-   696  0792                     u141:
-   697  0792  2F96               	goto	l80
-   698  0793                     u140:
-   699  0793                     l752:
-   700                           
-   701                           ;SPEED_RACE_8.c: 145:                 PORTDbits.RD7 = 1;
-   702  0793  1283               	bcf	3,5	;RP0=0, select bank0
-   703  0794  1303               	bcf	3,6	;RP1=0, select bank0
-   704  0795  1788               	bsf	8,7	;volatile
-   705  0796                     l80:
-   706  0796  0008               	return
-   707  0797                     __end_of_PLAYER_2:
-   708                           
-   709                           	psect	text3
-   710  070B                     __ptext3:	
-   711 ;; *************** function _PLAYER_1 *****************
-   712 ;; Defined at:
-   713 ;;		line 98 in file "SPEED_RACE_8.c"
-   714 ;; Parameters:    Size  Location     Type
-   715 ;;		None
-   716 ;; Auto vars:     Size  Location     Type
-   717 ;;		None
-   718 ;; Return value:  Size  Location     Type
-   719 ;;                  1    wreg      void 
-   720 ;; Registers used:
-   721 ;;		wreg, status,2, status,0
-   722 ;; Tracked objects:
-   723 ;;		On entry : 0/0
-   724 ;;		On exit  : 0/0
-   725 ;;		Unchanged: 0/0
-   726 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   727 ;;      Params:         0       0       0       0       0
-   728 ;;      Locals:         0       0       0       0       0
-   729 ;;      Temps:          0       0       0       0       0
-   730 ;;      Totals:         0       0       0       0       0
-   731 ;;Total ram usage:        0 bytes
-   732 ;; Hardware stack levels used:    1
-   733 ;; This function calls:
-   734 ;;		Nothing
-   735 ;; This function is called by:
-   736 ;;		_main
-   737 ;; This function uses a non-reentrant model
-   738 ;;
-   739                           
-   740                           
-   741                           ;psect for function _PLAYER_1
-   742  070B                     _PLAYER_1:
-   743  070B                     l698:	
-   744                           ;incstack = 0
-   745                           ; Regs used in _PLAYER_1: [wreg+status,2+status,0]
-   746                           
-   747                           
-   748                           ;SPEED_RACE_8.c: 100:            if (cont == 1){
-   749  070B  0372               	decf	_cont,w
-   750  070C  0473               	iorwf	_cont+1,w
-   751  070D  1D03               	btfss	3,2
-   752  070E  2F10               	goto	u11
-   753  070F  2F11               	goto	u10
-   754  0710                     u11:
-   755  0710  2F14               	goto	l702
-   756  0711                     u10:
-   757  0711                     l700:
-   758                           
-   759                           ;SPEED_RACE_8.c: 101:                 PORTCbits.RC1 = 1;
-   760  0711  1283               	bcf	3,5	;RP0=0, select bank0
-   761  0712  1303               	bcf	3,6	;RP1=0, select bank0
-   762  0713  1487               	bsf	7,1	;volatile
-   763  0714                     l702:
-   764                           
-   765                           ;SPEED_RACE_8.c: 103:            if (cont == 2){
-   766  0714  3002               	movlw	2
-   767  0715  0672               	xorwf	_cont,w
-   768  0716  0473               	iorwf	_cont+1,w
-   769  0717  1D03               	btfss	3,2
-   770  0718  2F1A               	goto	u21
-   771  0719  2F1B               	goto	u20
-   772  071A                     u21:
-   773  071A  2F1E               	goto	l706
-   774  071B                     u20:
-   775  071B                     l704:
-   776                           
-   777                           ;SPEED_RACE_8.c: 104:                 PORTCbits.RC2 = 1;
-   778  071B  1283               	bcf	3,5	;RP0=0, select bank0
-   779  071C  1303               	bcf	3,6	;RP1=0, select bank0
-   780  071D  1507               	bsf	7,2	;volatile
-   781  071E                     l706:
-   782                           
-   783                           ;SPEED_RACE_8.c: 106:            if (cont == 3){
-   784  071E  3003               	movlw	3
-   785  071F  0672               	xorwf	_cont,w
-   786  0720  0473               	iorwf	_cont+1,w
-   787  0721  1D03               	btfss	3,2
-   788  0722  2F24               	goto	u31
-   789  0723  2F25               	goto	u30
-   790  0724                     u31:
-   791  0724  2F28               	goto	l710
-   792  0725                     u30:
-   793  0725                     l708:
-   794                           
-   795                           ;SPEED_RACE_8.c: 107:                 PORTCbits.RC3 = 1;
-   796  0725  1283               	bcf	3,5	;RP0=0, select bank0
-   797  0726  1303               	bcf	3,6	;RP1=0, select bank0
-   798  0727  1587               	bsf	7,3	;volatile
-   799  0728                     l710:
-   800                           
-   801                           ;SPEED_RACE_8.c: 109:            if (cont == 4){
-   802  0728  3004               	movlw	4
-   803  0729  0672               	xorwf	_cont,w
-   804  072A  0473               	iorwf	_cont+1,w
-   805  072B  1D03               	btfss	3,2
-   806  072C  2F2E               	goto	u41
-   807  072D  2F2F               	goto	u40
-   808  072E                     u41:
-   809  072E  2F32               	goto	l714
-   810  072F                     u40:
-   811  072F                     l712:
-   812                           
-   813                           ;SPEED_RACE_8.c: 110:                 PORTCbits.RC4 = 1;
-   814  072F  1283               	bcf	3,5	;RP0=0, select bank0
-   815  0730  1303               	bcf	3,6	;RP1=0, select bank0
-   816  0731  1607               	bsf	7,4	;volatile
-   817  0732                     l714:
-   818                           
-   819                           ;SPEED_RACE_8.c: 112:            if (cont == 5){
-   820  0732  3005               	movlw	5
-   821  0733  0672               	xorwf	_cont,w
-   822  0734  0473               	iorwf	_cont+1,w
-   823  0735  1D03               	btfss	3,2
-   824  0736  2F38               	goto	u51
-   825  0737  2F39               	goto	u50
-   826  0738                     u51:
-   827  0738  2F3C               	goto	l718
-   828  0739                     u50:
-   829  0739                     l716:
-   830                           
-   831                           ;SPEED_RACE_8.c: 113:                 PORTCbits.RC5 = 1;
-   832  0739  1283               	bcf	3,5	;RP0=0, select bank0
-   833  073A  1303               	bcf	3,6	;RP1=0, select bank0
-   834  073B  1687               	bsf	7,5	;volatile
-   835  073C                     l718:
-   836                           
-   837                           ;SPEED_RACE_8.c: 115:            if (cont == 6){
-   838  073C  3006               	movlw	6
-   839  073D  0672               	xorwf	_cont,w
-   840  073E  0473               	iorwf	_cont+1,w
-   841  073F  1D03               	btfss	3,2
-   842  0740  2F42               	goto	u61
-   843  0741  2F43               	goto	u60
-   844  0742                     u61:
-   845  0742  2F46               	goto	l722
-   846  0743                     u60:
-   847  0743                     l720:
-   848                           
-   849                           ;SPEED_RACE_8.c: 116:                 PORTCbits.RC6 = 1;
-   850  0743  1283               	bcf	3,5	;RP0=0, select bank0
-   851  0744  1303               	bcf	3,6	;RP1=0, select bank0
-   852  0745  1707               	bsf	7,6	;volatile
-   853  0746                     l722:
-   854                           
-   855                           ;SPEED_RACE_8.c: 118:            if (cont == 7){
-   856  0746  3007               	movlw	7
-   857  0747  0672               	xorwf	_cont,w
-   858  0748  0473               	iorwf	_cont+1,w
-   859  0749  1D03               	btfss	3,2
-   860  074A  2F4C               	goto	u71
-   861  074B  2F4D               	goto	u70
-   862  074C                     u71:
-   863  074C  2F50               	goto	l70
-   864  074D                     u70:
-   865  074D                     l724:
-   866                           
-   867                           ;SPEED_RACE_8.c: 119:                 PORTCbits.RC7 = 1;
-   868  074D  1283               	bcf	3,5	;RP0=0, select bank0
-   869  074E  1303               	bcf	3,6	;RP1=0, select bank0
-   870  074F  1787               	bsf	7,7	;volatile
-   871  0750                     l70:
-   872  0750  0008               	return
-   873  0751                     __end_of_PLAYER_1:
-   874                           
-   875                           	psect	text4
-   876  06ED                     __ptext4:	
-   877 ;; *************** function _LIGTHS_OUT *****************
-   878 ;; Defined at:
-   879 ;;		line 84 in file "SPEED_RACE_8.c"
-   880 ;; Parameters:    Size  Location     Type
-   881 ;;		None
-   882 ;; Auto vars:     Size  Location     Type
-   883 ;;		None
-   884 ;; Return value:  Size  Location     Type
-   885 ;;                  1    wreg      void 
-   886 ;; Registers used:
-   887 ;;		wreg
-   888 ;; Tracked objects:
-   889 ;;		On entry : 0/0
-   890 ;;		On exit  : 0/0
-   891 ;;		Unchanged: 0/0
-   892 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   893 ;;      Params:         0       0       0       0       0
-   894 ;;      Locals:         0       0       0       0       0
-   895 ;;      Temps:          2       0       0       0       0
-   896 ;;      Totals:         2       0       0       0       0
-   897 ;;Total ram usage:        2 bytes
-   898 ;; Hardware stack levels used:    1
-   899 ;; This function calls:
-   900 ;;		Nothing
-   901 ;; This function is called by:
-   902 ;;		_main
-   903 ;; This function uses a non-reentrant model
-   904 ;;
-   905                           
-   906                           
-   907                           ;psect for function _LIGTHS_OUT
-   908  06ED                     _LIGTHS_OUT:
-   909  06ED                     l686:	
-   910                           ;incstack = 0
-   911                           ; Regs used in _LIGTHS_OUT: [wreg]
-   912                           
-   913                           
-   914                           ;SPEED_RACE_8.c: 86:         PORTBbits.RB0 = 1;
-   915  06ED  1283               	bcf	3,5	;RP0=0, select bank0
-   916  06EE  1303               	bcf	3,6	;RP1=0, select bank0
-   917  06EF  1406               	bsf	6,0	;volatile
-   918  06F0                     l688:
-   919                           
-   920                           ;SPEED_RACE_8.c: 87:         _delay((unsigned long)((80)*(8000000/4000.0)));
-   921  06F0  30D0               	movlw	208
-   922  06F1  00F5               	movwf	??_LIGTHS_OUT+1
-   923  06F2  30C9               	movlw	201
-   924  06F3  00F4               	movwf	??_LIGTHS_OUT
-   925  06F4                     u227:
-   926  06F4  0BF4               	decfsz	??_LIGTHS_OUT,f
-   927  06F5  2EF4               	goto	u227
-   928  06F6  0BF5               	decfsz	??_LIGTHS_OUT+1,f
-   929  06F7  2EF4               	goto	u227
-   930  06F8  2EF9               	nop2
-   931  06F9                     l690:
-   932                           
-   933                           ;SPEED_RACE_8.c: 89:         PORTBbits.RB0 = 0;
-   934  06F9  1283               	bcf	3,5	;RP0=0, select bank0
-   935  06FA  1303               	bcf	3,6	;RP1=0, select bank0
-   936  06FB  1006               	bcf	6,0	;volatile
-   937  06FC                     l692:
-   938                           
-   939                           ;SPEED_RACE_8.c: 90:         PORTBbits.RB1 = 1;
-   940  06FC  1486               	bsf	6,1	;volatile
-   941                           
-   942                           ;SPEED_RACE_8.c: 91:          _delay((unsigned long)((80)*(8000000/4000.0)));
-   943  06FD  30D0               	movlw	208
-   944  06FE  00F5               	movwf	??_LIGTHS_OUT+1
-   945  06FF  30C9               	movlw	201
-   946  0700  00F4               	movwf	??_LIGTHS_OUT
-   947  0701                     u237:
-   948  0701  0BF4               	decfsz	??_LIGTHS_OUT,f
-   949  0702  2F01               	goto	u237
-   950  0703  0BF5               	decfsz	??_LIGTHS_OUT+1,f
-   951  0704  2F01               	goto	u237
-   952  0705  2F06               	nop2
-   953  0706                     l694:
-   954                           
-   955                           ;SPEED_RACE_8.c: 93:         PORTBbits.RB1 = 0;
-   956  0706  1283               	bcf	3,5	;RP0=0, select bank0
-   957  0707  1303               	bcf	3,6	;RP1=0, select bank0
-   958  0708  1086               	bcf	6,1	;volatile
-   959  0709                     l696:
-   960                           
-   961                           ;SPEED_RACE_8.c: 94:         PORTBbits.RB2 = 1;
-   962  0709  1506               	bsf	6,2	;volatile
-   963  070A                     l60:
-   964  070A  0008               	return
-   965  070B                     __end_of_LIGTHS_OUT:
-   966  007E                     btemp	set	126	;btemp
-   967  007E                     wtemp0	set	126
-   968                           
-   969                           	psect	config
-   970                           
-   971                           ;Config register CONFIG1 @ 0x2007
-   972                           ;	Oscillator Selection bits
-   973                           ;	FOSC = XT, XT oscillator: Crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1/CLKIN
-   974                           ;	Watchdog Timer Enable bit
-   975                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
-   976                           ;	Power-up Timer Enable bit
-   977                           ;	PWRTE = OFF, PWRT disabled
-   978                           ;	RE3/MCLR pin function select bit
-   979                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
-   980                           ;	Code Protection bit
-   981                           ;	CP = OFF, Program memory code protection is disabled
-   982                           ;	Data Code Protection bit
-   983                           ;	CPD = OFF, Data memory code protection is disabled
-   984                           ;	Brown Out Reset Selection bits
-   985                           ;	BOREN = OFF, BOR disabled
-   986                           ;	Internal External Switchover bit
-   987                           ;	IESO = OFF, Internal/External Switchover mode is disabled
-   988                           ;	Fail-Safe Clock Monitor Enabled bit
-   989                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
-   990                           ;	Low Voltage Programming Enable bit
-   991                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
-   992                           ;	In-Circuit Debugger Mode bit
-   993                           ;	DEBUG = 0x1, unprogrammed default
-   994  2007                     	org	8199
-   995  2007  20D1               	dw	8401
-   996                           
-   997                           ;Config register CONFIG2 @ 0x2008
-   998                           ;	Brown-out Reset Selection bit
-   999                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
-  1000                           ;	Flash Program Memory Self Write Enable bits
-  1001                           ;	WRT = OFF, Write protection off
-  1002  2008                     	org	8200
-  1003  2008  3FFF               	dw	16383
+   575                           ;SPEED_RACE_8.c: 92:         TRISD = 0b00000001;
+   576  06AE  3001               	movlw	1
+   577  06AF  0088               	movwf	8	;volatile
+   578  06B0                     l683:
+   579                           
+   580                           ;SPEED_RACE_8.c: 93:         TRISC = 0b00000001;
+   581  06B0  3001               	movlw	1
+   582  06B1  0087               	movwf	7	;volatile
+   583  06B2                     l685:
+   584                           
+   585                           ;SPEED_RACE_8.c: 94:         TRISE = 0b001 ;
+   586  06B2  3001               	movlw	1
+   587  06B3  0089               	movwf	9	;volatile
+   588  06B4                     l687:
+   589                           
+   590                           ;SPEED_RACE_8.c: 95:         PORTB = 0 ;
+   591  06B4  1283               	bcf	3,5	;RP0=0, select bank0
+   592  06B5  1303               	bcf	3,6	;RP1=0, select bank0
+   593  06B6  0186               	clrf	6	;volatile
+   594  06B7                     l689:
+   595                           
+   596                           ;SPEED_RACE_8.c: 96:         PORTC = 0 ;
+   597  06B7  0187               	clrf	7	;volatile
+   598  06B8                     l691:
+   599                           
+   600                           ;SPEED_RACE_8.c: 97:         PORTD = 0 ;
+   601  06B8  0188               	clrf	8	;volatile
+   602  06B9                     l62:
+   603  06B9  0008               	return
+   604  06BA                     __end_of_config:
+   605                           
+   606                           	psect	text2
+   607  0728                     __ptext2:	
+   608 ;; *************** function _PLAYER_2 *****************
+   609 ;; Defined at:
+   610 ;;		line 142 in file "SPEED_RACE_8.c"
+   611 ;; Parameters:    Size  Location     Type
+   612 ;;		None
+   613 ;; Auto vars:     Size  Location     Type
+   614 ;;		None
+   615 ;; Return value:  Size  Location     Type
+   616 ;;                  1    wreg      void 
+   617 ;; Registers used:
+   618 ;;		wreg, status,2, status,0
+   619 ;; Tracked objects:
+   620 ;;		On entry : 0/0
+   621 ;;		On exit  : 0/0
+   622 ;;		Unchanged: 0/0
+   623 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   624 ;;      Params:         0       0       0       0       0
+   625 ;;      Locals:         0       0       0       0       0
+   626 ;;      Temps:          0       0       0       0       0
+   627 ;;      Totals:         0       0       0       0       0
+   628 ;;Total ram usage:        0 bytes
+   629 ;; Hardware stack levels used:    1
+   630 ;; This function calls:
+   631 ;;		Nothing
+   632 ;; This function is called by:
+   633 ;;		_main
+   634 ;; This function uses a non-reentrant model
+   635 ;;
+   636                           
+   637                           
+   638                           ;psect for function _PLAYER_2
+   639  0728                     _PLAYER_2:
+   640  0728                     l737:	
+   641                           ;incstack = 0
+   642                           ; Regs used in _PLAYER_2: [wreg+status,2+status,0]
+   643                           
+   644                           
+   645                           ;SPEED_RACE_8.c: 144:             if (cont2 == 1){
+   646  0728  0370               	decf	_cont2,w
+   647  0729  0471               	iorwf	_cont2+1,w
+   648  072A  1D03               	btfss	3,2
+   649  072B  2F2D               	goto	u91
+   650  072C  2F2E               	goto	u90
+   651  072D                     u91:
+   652  072D  2F31               	goto	l741
+   653  072E                     u90:
+   654  072E                     l739:
+   655                           
+   656                           ;SPEED_RACE_8.c: 145:                 PORTDbits.RD1 = 1;
+   657  072E  1283               	bcf	3,5	;RP0=0, select bank0
+   658  072F  1303               	bcf	3,6	;RP1=0, select bank0
+   659  0730  1488               	bsf	8,1	;volatile
+   660  0731                     l741:
+   661                           
+   662                           ;SPEED_RACE_8.c: 147:             if (cont2 == 2){
+   663  0731  3002               	movlw	2
+   664  0732  0670               	xorwf	_cont2,w
+   665  0733  0471               	iorwf	_cont2+1,w
+   666  0734  1D03               	btfss	3,2
+   667  0735  2F37               	goto	u101
+   668  0736  2F38               	goto	u100
+   669  0737                     u101:
+   670  0737  2F3B               	goto	l745
+   671  0738                     u100:
+   672  0738                     l743:
+   673                           
+   674                           ;SPEED_RACE_8.c: 148:                 PORTDbits.RD2 = 1;
+   675  0738  1283               	bcf	3,5	;RP0=0, select bank0
+   676  0739  1303               	bcf	3,6	;RP1=0, select bank0
+   677  073A  1508               	bsf	8,2	;volatile
+   678  073B                     l745:
+   679                           
+   680                           ;SPEED_RACE_8.c: 150:             if (cont2 == 3){
+   681  073B  3003               	movlw	3
+   682  073C  0670               	xorwf	_cont2,w
+   683  073D  0471               	iorwf	_cont2+1,w
+   684  073E  1D03               	btfss	3,2
+   685  073F  2F41               	goto	u111
+   686  0740  2F42               	goto	u110
+   687  0741                     u111:
+   688  0741  2F45               	goto	l749
+   689  0742                     u110:
+   690  0742                     l747:
+   691                           
+   692                           ;SPEED_RACE_8.c: 151:                 PORTDbits.RD3 = 1;
+   693  0742  1283               	bcf	3,5	;RP0=0, select bank0
+   694  0743  1303               	bcf	3,6	;RP1=0, select bank0
+   695  0744  1588               	bsf	8,3	;volatile
+   696  0745                     l749:
+   697                           
+   698                           ;SPEED_RACE_8.c: 153:             if (cont2 == 4){
+   699  0745  3004               	movlw	4
+   700  0746  0670               	xorwf	_cont2,w
+   701  0747  0471               	iorwf	_cont2+1,w
+   702  0748  1D03               	btfss	3,2
+   703  0749  2F4B               	goto	u121
+   704  074A  2F4C               	goto	u120
+   705  074B                     u121:
+   706  074B  2F4F               	goto	l753
+   707  074C                     u120:
+   708  074C                     l751:
+   709                           
+   710                           ;SPEED_RACE_8.c: 154:                 PORTDbits.RD4 = 1;
+   711  074C  1283               	bcf	3,5	;RP0=0, select bank0
+   712  074D  1303               	bcf	3,6	;RP1=0, select bank0
+   713  074E  1608               	bsf	8,4	;volatile
+   714  074F                     l753:
+   715                           
+   716                           ;SPEED_RACE_8.c: 156:             if (cont2 == 5){
+   717  074F  3005               	movlw	5
+   718  0750  0670               	xorwf	_cont2,w
+   719  0751  0471               	iorwf	_cont2+1,w
+   720  0752  1D03               	btfss	3,2
+   721  0753  2F55               	goto	u131
+   722  0754  2F56               	goto	u130
+   723  0755                     u131:
+   724  0755  2F59               	goto	l757
+   725  0756                     u130:
+   726  0756                     l755:
+   727                           
+   728                           ;SPEED_RACE_8.c: 157:                 PORTDbits.RD5 = 1;
+   729  0756  1283               	bcf	3,5	;RP0=0, select bank0
+   730  0757  1303               	bcf	3,6	;RP1=0, select bank0
+   731  0758  1688               	bsf	8,5	;volatile
+   732  0759                     l757:
+   733                           
+   734                           ;SPEED_RACE_8.c: 159:             if (cont2 == 6){
+   735  0759  3006               	movlw	6
+   736  075A  0670               	xorwf	_cont2,w
+   737  075B  0471               	iorwf	_cont2+1,w
+   738  075C  1D03               	btfss	3,2
+   739  075D  2F5F               	goto	u141
+   740  075E  2F60               	goto	u140
+   741  075F                     u141:
+   742  075F  2F63               	goto	l761
+   743  0760                     u140:
+   744  0760                     l759:
+   745                           
+   746                           ;SPEED_RACE_8.c: 160:                 PORTDbits.RD6 = 1;
+   747  0760  1283               	bcf	3,5	;RP0=0, select bank0
+   748  0761  1303               	bcf	3,6	;RP1=0, select bank0
+   749  0762  1708               	bsf	8,6	;volatile
+   750  0763                     l761:
+   751                           
+   752                           ;SPEED_RACE_8.c: 162:             if (cont2 == 7){
+   753  0763  3007               	movlw	7
+   754  0764  0670               	xorwf	_cont2,w
+   755  0765  0471               	iorwf	_cont2+1,w
+   756  0766  1D03               	btfss	3,2
+   757  0767  2F69               	goto	u151
+   758  0768  2F6A               	goto	u150
+   759  0769                     u151:
+   760  0769  2F6D               	goto	l765
+   761  076A                     u150:
+   762  076A                     l763:
+   763                           
+   764                           ;SPEED_RACE_8.c: 163:                 PORTDbits.RD7 = 1;
+   765  076A  1283               	bcf	3,5	;RP0=0, select bank0
+   766  076B  1303               	bcf	3,6	;RP1=0, select bank0
+   767  076C  1788               	bsf	8,7	;volatile
+   768  076D                     l765:
+   769                           
+   770                           ;SPEED_RACE_8.c: 165:            if (cont2 == 8){
+   771  076D  3008               	movlw	8
+   772  076E  0670               	xorwf	_cont2,w
+   773  076F  0471               	iorwf	_cont2+1,w
+   774  0770  1D03               	btfss	3,2
+   775  0771  2F73               	goto	u161
+   776  0772  2F74               	goto	u160
+   777  0773                     u161:
+   778  0773  2F77               	goto	l87
+   779  0774                     u160:
+   780  0774                     l767:
+   781                           
+   782                           ;SPEED_RACE_8.c: 166:                 PORTBbits.RB4 = 1;
+   783  0774  1283               	bcf	3,5	;RP0=0, select bank0
+   784  0775  1303               	bcf	3,6	;RP1=0, select bank0
+   785  0776  1606               	bsf	6,4	;volatile
+   786  0777                     l87:
+   787  0777  0008               	return
+   788  0778                     __end_of_PLAYER_2:
+   789                           
+   790                           	psect	text3
+   791  06D8                     __ptext3:	
+   792 ;; *************** function _PLAYER_1 *****************
+   793 ;; Defined at:
+   794 ;;		line 114 in file "SPEED_RACE_8.c"
+   795 ;; Parameters:    Size  Location     Type
+   796 ;;		None
+   797 ;; Auto vars:     Size  Location     Type
+   798 ;;		None
+   799 ;; Return value:  Size  Location     Type
+   800 ;;                  1    wreg      void 
+   801 ;; Registers used:
+   802 ;;		wreg, status,2, status,0
+   803 ;; Tracked objects:
+   804 ;;		On entry : 0/0
+   805 ;;		On exit  : 0/0
+   806 ;;		Unchanged: 0/0
+   807 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   808 ;;      Params:         0       0       0       0       0
+   809 ;;      Locals:         0       0       0       0       0
+   810 ;;      Temps:          0       0       0       0       0
+   811 ;;      Totals:         0       0       0       0       0
+   812 ;;Total ram usage:        0 bytes
+   813 ;; Hardware stack levels used:    1
+   814 ;; This function calls:
+   815 ;;		Nothing
+   816 ;; This function is called by:
+   817 ;;		_main
+   818 ;; This function uses a non-reentrant model
+   819 ;;
+   820                           
+   821                           
+   822                           ;psect for function _PLAYER_1
+   823  06D8                     _PLAYER_1:
+   824  06D8                     l705:	
+   825                           ;incstack = 0
+   826                           ; Regs used in _PLAYER_1: [wreg+status,2+status,0]
+   827                           
+   828                           
+   829                           ;SPEED_RACE_8.c: 116:            if (cont == 1){
+   830  06D8  0372               	decf	_cont,w
+   831  06D9  0473               	iorwf	_cont+1,w
+   832  06DA  1D03               	btfss	3,2
+   833  06DB  2EDD               	goto	u11
+   834  06DC  2EDE               	goto	u10
+   835  06DD                     u11:
+   836  06DD  2EE1               	goto	l709
+   837  06DE                     u10:
+   838  06DE                     l707:
+   839                           
+   840                           ;SPEED_RACE_8.c: 117:                 PORTCbits.RC1 = 1;
+   841  06DE  1283               	bcf	3,5	;RP0=0, select bank0
+   842  06DF  1303               	bcf	3,6	;RP1=0, select bank0
+   843  06E0  1487               	bsf	7,1	;volatile
+   844  06E1                     l709:
+   845                           
+   846                           ;SPEED_RACE_8.c: 119:            if (cont == 2){
+   847  06E1  3002               	movlw	2
+   848  06E2  0672               	xorwf	_cont,w
+   849  06E3  0473               	iorwf	_cont+1,w
+   850  06E4  1D03               	btfss	3,2
+   851  06E5  2EE7               	goto	u21
+   852  06E6  2EE8               	goto	u20
+   853  06E7                     u21:
+   854  06E7  2EEB               	goto	l713
+   855  06E8                     u20:
+   856  06E8                     l711:
+   857                           
+   858                           ;SPEED_RACE_8.c: 120:                 PORTCbits.RC2 = 1;
+   859  06E8  1283               	bcf	3,5	;RP0=0, select bank0
+   860  06E9  1303               	bcf	3,6	;RP1=0, select bank0
+   861  06EA  1507               	bsf	7,2	;volatile
+   862  06EB                     l713:
+   863                           
+   864                           ;SPEED_RACE_8.c: 122:            if (cont == 3){
+   865  06EB  3003               	movlw	3
+   866  06EC  0672               	xorwf	_cont,w
+   867  06ED  0473               	iorwf	_cont+1,w
+   868  06EE  1D03               	btfss	3,2
+   869  06EF  2EF1               	goto	u31
+   870  06F0  2EF2               	goto	u30
+   871  06F1                     u31:
+   872  06F1  2EF5               	goto	l717
+   873  06F2                     u30:
+   874  06F2                     l715:
+   875                           
+   876                           ;SPEED_RACE_8.c: 123:                 PORTCbits.RC3 = 1;
+   877  06F2  1283               	bcf	3,5	;RP0=0, select bank0
+   878  06F3  1303               	bcf	3,6	;RP1=0, select bank0
+   879  06F4  1587               	bsf	7,3	;volatile
+   880  06F5                     l717:
+   881                           
+   882                           ;SPEED_RACE_8.c: 125:            if (cont == 4){
+   883  06F5  3004               	movlw	4
+   884  06F6  0672               	xorwf	_cont,w
+   885  06F7  0473               	iorwf	_cont+1,w
+   886  06F8  1D03               	btfss	3,2
+   887  06F9  2EFB               	goto	u41
+   888  06FA  2EFC               	goto	u40
+   889  06FB                     u41:
+   890  06FB  2EFF               	goto	l721
+   891  06FC                     u40:
+   892  06FC                     l719:
+   893                           
+   894                           ;SPEED_RACE_8.c: 126:                 PORTCbits.RC4 = 1;
+   895  06FC  1283               	bcf	3,5	;RP0=0, select bank0
+   896  06FD  1303               	bcf	3,6	;RP1=0, select bank0
+   897  06FE  1607               	bsf	7,4	;volatile
+   898  06FF                     l721:
+   899                           
+   900                           ;SPEED_RACE_8.c: 128:            if (cont == 5){
+   901  06FF  3005               	movlw	5
+   902  0700  0672               	xorwf	_cont,w
+   903  0701  0473               	iorwf	_cont+1,w
+   904  0702  1D03               	btfss	3,2
+   905  0703  2F05               	goto	u51
+   906  0704  2F06               	goto	u50
+   907  0705                     u51:
+   908  0705  2F09               	goto	l725
+   909  0706                     u50:
+   910  0706                     l723:
+   911                           
+   912                           ;SPEED_RACE_8.c: 129:                 PORTCbits.RC5 = 1;
+   913  0706  1283               	bcf	3,5	;RP0=0, select bank0
+   914  0707  1303               	bcf	3,6	;RP1=0, select bank0
+   915  0708  1687               	bsf	7,5	;volatile
+   916  0709                     l725:
+   917                           
+   918                           ;SPEED_RACE_8.c: 131:            if (cont == 6){
+   919  0709  3006               	movlw	6
+   920  070A  0672               	xorwf	_cont,w
+   921  070B  0473               	iorwf	_cont+1,w
+   922  070C  1D03               	btfss	3,2
+   923  070D  2F0F               	goto	u61
+   924  070E  2F10               	goto	u60
+   925  070F                     u61:
+   926  070F  2F13               	goto	l729
+   927  0710                     u60:
+   928  0710                     l727:
+   929                           
+   930                           ;SPEED_RACE_8.c: 132:                 PORTCbits.RC6 = 1;
+   931  0710  1283               	bcf	3,5	;RP0=0, select bank0
+   932  0711  1303               	bcf	3,6	;RP1=0, select bank0
+   933  0712  1707               	bsf	7,6	;volatile
+   934  0713                     l729:
+   935                           
+   936                           ;SPEED_RACE_8.c: 134:            if (cont == 7){
+   937  0713  3007               	movlw	7
+   938  0714  0672               	xorwf	_cont,w
+   939  0715  0473               	iorwf	_cont+1,w
+   940  0716  1D03               	btfss	3,2
+   941  0717  2F19               	goto	u71
+   942  0718  2F1A               	goto	u70
+   943  0719                     u71:
+   944  0719  2F1D               	goto	l733
+   945  071A                     u70:
+   946  071A                     l731:
+   947                           
+   948                           ;SPEED_RACE_8.c: 135:                 PORTCbits.RC7 = 1;
+   949  071A  1283               	bcf	3,5	;RP0=0, select bank0
+   950  071B  1303               	bcf	3,6	;RP1=0, select bank0
+   951  071C  1787               	bsf	7,7	;volatile
+   952  071D                     l733:
+   953                           
+   954                           ;SPEED_RACE_8.c: 137:            if (cont == 8){
+   955  071D  3008               	movlw	8
+   956  071E  0672               	xorwf	_cont,w
+   957  071F  0473               	iorwf	_cont+1,w
+   958  0720  1D03               	btfss	3,2
+   959  0721  2F23               	goto	u81
+   960  0722  2F24               	goto	u80
+   961  0723                     u81:
+   962  0723  2F27               	goto	l76
+   963  0724                     u80:
+   964  0724                     l735:
+   965                           
+   966                           ;SPEED_RACE_8.c: 138:                 PORTBbits.RB3 = 1;
+   967  0724  1283               	bcf	3,5	;RP0=0, select bank0
+   968  0725  1303               	bcf	3,6	;RP1=0, select bank0
+   969  0726  1586               	bsf	6,3	;volatile
+   970  0727                     l76:
+   971  0727  0008               	return
+   972  0728                     __end_of_PLAYER_1:
+   973                           
+   974                           	psect	text4
+   975  06BA                     __ptext4:	
+   976 ;; *************** function _LIGTHS_OUT *****************
+   977 ;; Defined at:
+   978 ;;		line 100 in file "SPEED_RACE_8.c"
+   979 ;; Parameters:    Size  Location     Type
+   980 ;;		None
+   981 ;; Auto vars:     Size  Location     Type
+   982 ;;		None
+   983 ;; Return value:  Size  Location     Type
+   984 ;;                  1    wreg      void 
+   985 ;; Registers used:
+   986 ;;		wreg
+   987 ;; Tracked objects:
+   988 ;;		On entry : 0/0
+   989 ;;		On exit  : 0/0
+   990 ;;		Unchanged: 0/0
+   991 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   992 ;;      Params:         0       0       0       0       0
+   993 ;;      Locals:         0       0       0       0       0
+   994 ;;      Temps:          2       0       0       0       0
+   995 ;;      Totals:         2       0       0       0       0
+   996 ;;Total ram usage:        2 bytes
+   997 ;; Hardware stack levels used:    1
+   998 ;; This function calls:
+   999 ;;		Nothing
+  1000 ;; This function is called by:
+  1001 ;;		_main
+  1002 ;; This function uses a non-reentrant model
+  1003 ;;
+  1004                           
+  1005                           
+  1006                           ;psect for function _LIGTHS_OUT
+  1007  06BA                     _LIGTHS_OUT:
+  1008  06BA                     l693:	
+  1009                           ;incstack = 0
+  1010                           ; Regs used in _LIGTHS_OUT: [wreg]
+  1011                           
+  1012                           
+  1013                           ;SPEED_RACE_8.c: 102:         PORTBbits.RB0 = 1;
+  1014  06BA  1283               	bcf	3,5	;RP0=0, select bank0
+  1015  06BB  1303               	bcf	3,6	;RP1=0, select bank0
+  1016  06BC  1406               	bsf	6,0	;volatile
+  1017  06BD                     l695:
+  1018                           
+  1019                           ;SPEED_RACE_8.c: 103:         _delay((unsigned long)((80)*(8000000/4000.0)));
+  1020  06BD  30D0               	movlw	208
+  1021  06BE  00F5               	movwf	??_LIGTHS_OUT+1
+  1022  06BF  30C9               	movlw	201
+  1023  06C0  00F4               	movwf	??_LIGTHS_OUT
+  1024  06C1                     u297:
+  1025  06C1  0BF4               	decfsz	??_LIGTHS_OUT,f
+  1026  06C2  2EC1               	goto	u297
+  1027  06C3  0BF5               	decfsz	??_LIGTHS_OUT+1,f
+  1028  06C4  2EC1               	goto	u297
+  1029  06C5  2EC6               	nop2
+  1030  06C6                     l697:
+  1031                           
+  1032                           ;SPEED_RACE_8.c: 105:         PORTBbits.RB0 = 0;
+  1033  06C6  1283               	bcf	3,5	;RP0=0, select bank0
+  1034  06C7  1303               	bcf	3,6	;RP1=0, select bank0
+  1035  06C8  1006               	bcf	6,0	;volatile
+  1036  06C9                     l699:
+  1037                           
+  1038                           ;SPEED_RACE_8.c: 106:         PORTBbits.RB1 = 1;
+  1039  06C9  1486               	bsf	6,1	;volatile
+  1040                           
+  1041                           ;SPEED_RACE_8.c: 107:          _delay((unsigned long)((80)*(8000000/4000.0)));
+  1042  06CA  30D0               	movlw	208
+  1043  06CB  00F5               	movwf	??_LIGTHS_OUT+1
+  1044  06CC  30C9               	movlw	201
+  1045  06CD  00F4               	movwf	??_LIGTHS_OUT
+  1046  06CE                     u307:
+  1047  06CE  0BF4               	decfsz	??_LIGTHS_OUT,f
+  1048  06CF  2ECE               	goto	u307
+  1049  06D0  0BF5               	decfsz	??_LIGTHS_OUT+1,f
+  1050  06D1  2ECE               	goto	u307
+  1051  06D2  2ED3               	nop2
+  1052  06D3                     l701:
+  1053                           
+  1054                           ;SPEED_RACE_8.c: 109:         PORTBbits.RB1 = 0;
+  1055  06D3  1283               	bcf	3,5	;RP0=0, select bank0
+  1056  06D4  1303               	bcf	3,6	;RP1=0, select bank0
+  1057  06D5  1086               	bcf	6,1	;volatile
+  1058  06D6                     l703:
+  1059                           
+  1060                           ;SPEED_RACE_8.c: 110:         PORTBbits.RB2 = 1;
+  1061  06D6  1506               	bsf	6,2	;volatile
+  1062  06D7                     l65:
+  1063  06D7  0008               	return
+  1064  06D8                     __end_of_LIGTHS_OUT:
+  1065  007E                     btemp	set	126	;btemp
+  1066  007E                     wtemp0	set	126
+  1067                           
+  1068                           	psect	config
+  1069                           
+  1070                           ;Config register CONFIG1 @ 0x2007
+  1071                           ;	Oscillator Selection bits
+  1072                           ;	FOSC = XT, XT oscillator: Crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1/CLKIN
+  1073                           ;	Watchdog Timer Enable bit
+  1074                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+  1075                           ;	Power-up Timer Enable bit
+  1076                           ;	PWRTE = OFF, PWRT disabled
+  1077                           ;	RE3/MCLR pin function select bit
+  1078                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
+  1079                           ;	Code Protection bit
+  1080                           ;	CP = OFF, Program memory code protection is disabled
+  1081                           ;	Data Code Protection bit
+  1082                           ;	CPD = OFF, Data memory code protection is disabled
+  1083                           ;	Brown Out Reset Selection bits
+  1084                           ;	BOREN = OFF, BOR disabled
+  1085                           ;	Internal External Switchover bit
+  1086                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+  1087                           ;	Fail-Safe Clock Monitor Enabled bit
+  1088                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  1089                           ;	Low Voltage Programming Enable bit
+  1090                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+  1091                           ;	In-Circuit Debugger Mode bit
+  1092                           ;	DEBUG = 0x1, unprogrammed default
+  1093  2007                     	org	8199
+  1094  2007  20D1               	dw	8401
+  1095                           
+  1096                           ;Config register CONFIG2 @ 0x2008
+  1097                           ;	Brown-out Reset Selection bit
+  1098                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
+  1099                           ;	Flash Program Memory Self Write Enable bits
+  1100                           ;	WRT = OFF, Write protection off
+  1101  2008                     	org	8200
+  1102  2008  3FFF               	dw	16383
 
 Data Sizes:
     Strings     0
@@ -1117,59 +1216,67 @@ DATA                 0      0       8      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Sun Jan 31 22:08:34 2021
+Symbol Table                                                                                   Mon Feb 01 00:12:32 2021
 
-                     l60 070A                       l70 0750                       l46 07F5  
-                     l54 07F5                       l80 0796                       l57 06EC  
-                     u10 0711                       u11 0710                       u20 071B  
-                     u21 071A                       u30 0725                       u31 0724  
-                     u40 072F                       u41 072E                       u50 0739  
-                     u51 0738                       u60 0743                       u61 0742  
-                     u70 074D                       u71 074C                       u80 0757  
-                     u81 0756                       u90 0761                       u91 0760  
-            ?_LIGTHS_OUT 0074                      l700 0711                      l710 0728  
-                    l702 0714                      l720 0743                      l712 072F  
-                    l704 071B                      l722 0746                      l714 0732  
-                    l706 071E                      l730 075A                      l724 074D  
-                    l716 0739                      l708 0725                      l740 0775  
-                    l732 0761                      l718 073C                      l750 078C  
-                    l742 0778                      l734 0764                      l726 0751  
-                    l752 0793                      l744 077F                      l736 076B  
-                    l728 0757                      l680 06E7                      l672 06DA  
-                    l760 07A7                      l690 06F9                      l746 0782  
-                    l738 076E                      l682 06EA                      l674 06E1  
-                    l770 07C4                      l754 0797                      l692 06FC  
-                    l748 0789                      l684 06EB                      l676 06E3  
-                    l780 07E7                      l772 07C8                      l764 07AE  
-                    l756 079C                      l694 0706                      l686 06ED  
-                    l678 06E5                      l774 07D0                      l766 07B6  
-                    l758 07A2                      l696 0709                      l688 06F0  
-                    l776 07D5                      l768 07BC                      l698 070B  
-                    l778 07DA                      u100 076B                      u101 076A  
-                    u110 0775                      u111 0774                      u120 077F  
-                    u200 07F4                      u121 077E                      u201 07F3  
-                    u130 0789                      u131 0788                      u140 0793  
-                    u141 0792                      u205 07F0                      u150 07A2  
-                    u151 07A1                      u160 07AD                      u217 07B2  
-                    u161 07AC                      u170 07BC                      u227 06F4  
-                    u171 07BB                      u180 07C8                      u237 0701  
-                    u181 07C7                      u190 07E7                      u191 07E6  
-                    u195 07E3                     _cont 0072                     _main 0797  
+                     l50 07B1                       l52 07CA                       l62 06B9  
+                     l46 07F5                       l65 06D7                       l59 07F5  
+                     l76 0727                       l87 0777                       u10 06DE  
+                     u11 06DD                       u20 06E8                       u21 06E7  
+                     u30 06F2                       u31 06F1                       u40 06FC  
+                     u41 06FB                       u50 0706                       u51 0705  
+                     u60 0710                       u61 070F                       u70 071A  
+                     u71 0719                       u80 0724                       u81 0723  
+                     u90 072E                       u91 072D              ?_LIGTHS_OUT 0074  
+                    l701 06D3                      l703 06D6                      l711 06E8  
+                    l721 06FF                      l713 06EB                      l705 06D8  
+                    l731 071A                      l723 0706                      l715 06F2  
+                    l707 06DE                      l733 071D                      l725 0709  
+                    l717 06F5                      l709 06E1                      l741 0731  
+                    l735 0724                      l727 0710                      l719 06FC  
+                    l751 074C                      l743 0738                      l729 0713  
+                    l761 0763                      l753 074F                      l745 073B  
+                    l737 0728                      l681 06AE                      l763 076A  
+                    l755 0756                      l747 0742                      l739 072E  
+                    l691 06B8                      l683 06B0                      l771 077D  
+                    l693 06BA                      l765 076D                      l757 0759  
+                    l749 0745                      l685 06B2                      l781 0797  
+                    l773 0783                      l695 06BD                      l767 0774  
+                    l759 0760                      l687 06B4                      l679 06A7  
+                    l791 07C8                      l783 079D                      l775 0788  
+                    l697 06C6                      l689 06B7                      l793 07CE  
+                    l785 07A5                      l769 0778                      l699 06C9  
+                    l795 07D0                      l787 07A9                      l779 078F  
+                    l789 07C4                      l797 07DA                      l799 07E7  
+                    u100 0738                      u101 0737                      u110 0742  
+                    u111 0741                      u120 074C                      u200 07A9  
+                    u121 074B                      u201 07A8                      u130 0756  
+                    u210 07B6                      u131 0755                      u211 07B4  
+                    u140 0760                      u220 07BD                      u212 07B7  
+                    u141 075F                      u221 07BB                      u150 076A  
+                    u230 07C4                      u222 07BE                      u151 0769  
+                    u231 07C3                      u160 0774                      u240 07C8  
+                    u161 0773                      u241 07C7                      u250 07CE  
+                    u170 0783                      u307 06CE                      u251 07CD  
+                    u171 0782                      u260 07E7                      u180 078E  
+                    u261 07E6                      u181 078D                      u270 07F4  
+                    u190 079D                      u271 07F3                      u191 079C  
+                    u265 07E3                      u275 07F0                      u287 0793  
+                    u297 06C1                     _cont 0072                     _main 0778  
                    btemp 007E                     start 0000                    ?_main 0074  
-                  _ANSEL 0188         __end_of_PLAYER_1 0751         __end_of_PLAYER_2 0797  
+                  _ANSEL 0188         __end_of_PLAYER_1 0728         __end_of_PLAYER_2 0778  
                   _PORTB 0006                    _PORTC 0007                    _PORTD 0008  
                   _TRISB 0086                    _TRISC 0087                    _TRISD 0088  
                   _TRISE 0089                    _cont2 0070                    status 0003  
                   wtemp0 007E      __size_of_LIGTHS_OUT 001E          __initialization 07F8  
            __end_of_main 07F8                   ??_main 0076                   _ANSELH 0189  
-                 _config 06DA  __end_of__initialization 07FC                ?_PLAYER_1 0074  
+                 _config 06A7  __end_of__initialization 07FC                ?_PLAYER_1 0074  
               ?_PLAYER_2 0074           __pcstackCOMMON 0074             ??_LIGTHS_OUT 0074  
-     __end_of_LIGTHS_OUT 070B               ??_PLAYER_1 0074               ??_PLAYER_2 0074  
-             __pmaintext 0797                  ?_config 0074          __size_of_config 0013  
-                __ptext1 06DA                  __ptext2 0751                  __ptext3 070B  
-                __ptext4 06ED     end_of_initialization 07FC                _PORTBbits 0006  
+     __end_of_LIGTHS_OUT 06D8               ??_PLAYER_1 0074               ??_PLAYER_2 0074  
+             __pmaintext 0778                  ?_config 0074          __size_of_config 0013  
+                __ptext1 06A7                  __ptext2 0728                  __ptext3 06D8  
+                __ptext4 06BA     end_of_initialization 07FC                _PORTBbits 0006  
               _PORTCbits 0007                _PORTDbits 0008                _PORTEbits 0009  
-      __size_of_PLAYER_1 0046        __size_of_PLAYER_2 0046           __end_of_config 06ED  
+      __size_of_PLAYER_1 0050        __size_of_PLAYER_2 0050           __end_of_config 06BA  
     start_initialization 07F8                 ??_config 0074              __pbssCOMMON 0070  
-              ___latbits 0002                 _PLAYER_1 070B                 _PLAYER_2 0751  
-          __size_of_main 0061               _LIGTHS_OUT 06ED  
+              ___latbits 0002                 _PLAYER_1 06D8                 _PLAYER_2 0728  
+          __size_of_main 0080               _LIGTHS_OUT 06BA  

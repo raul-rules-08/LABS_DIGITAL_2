@@ -48,7 +48,7 @@ void main(void) { //Ciclo principal
     if (PORTEbits.RE0 == 1){                 //revisamos si el boton esta presionado
         LIGTHS_OUT();                        //llamamos a la funcion
         if(PORTBbits.RB2 == 1){              //revisamos si la tercera luz esta encendida
-            while ( cont < 8 && cont2 < 8) { // loop en cont y 2 no hayan llegado al final
+            while ( cont <= 8 && cont2 <= 8) { // loop en cont y 2 no hayan llegado al final
                 __delay_ms(30);
                 if (PORTCbits.RC0 == 1){    // se revisa si el boton player_1 esta presionado
                     cont = cont+1;          //aumentamos el contador
@@ -56,26 +56,42 @@ void main(void) { //Ciclo principal
                 if (PORTDbits.RD0 == 1){   // se revisa si el boton de player_2 esta presionado
                     cont2 = cont2+1;       //aumentamos el contador del player_2
                  }
-            PLAYER_1();                    // funcion  player-1
-            PLAYER_2();                    // funcion  player_2
+            //PLAYER_1();                    // funcion  player-1
+            //PLAYER_2();                    // funcion  player_2
+                if (PORTBbits.RB3 == 0 & PORTBbits.RB4 == 0)
+    { 
+        if (PORTBbits.RB3 == 1)
+        {
+            PORTDbits.RD0 = 0;
+       }
+        else if (PORTBbits.RB4 == 1)
+       {
+            PORTCbits.RC0 =0;
+        }
+        else
+        {
+           PLAYER_1();                   
+           PLAYER_2(); 
+        }
+    }
             }   
         
         }
     
-    }       
+    }  
+    
     
 }
-  
+
+          
     void config (void) {  //Configuraciones
 
         ANSELH = 0        ; 
-        ANSEL = 0         ; 
+        ANSEL = 0         ;   
         TRISB = 0         ; 
-        
         TRISD = 0b00000001; 
         TRISC = 0b00000001; 
-        TRISE = 0b001; 
-        
+        TRISE = 0b001     ; 
         PORTB = 0         ; 
         PORTC = 0         ; 
         PORTD = 0         ; 
@@ -116,9 +132,11 @@ void main(void) { //Ciclo principal
                 PORTCbits.RC6 = 1;           
             }
            if  (cont == 7){        
-                PORTCbits.RC7 = 1;         
-            }   
-            
+                PORTCbits.RC7 = 1;
+             }   
+           if  (cont == 8){        
+                PORTBbits.RB3 = 1;
+             }   
     }
     
     void PLAYER_2 (void){ // funcion player_2
@@ -144,6 +162,9 @@ void main(void) { //Ciclo principal
             if (cont2 == 7){               
                 PORTDbits.RD7 = 1;          
             }
+           if  (cont2 == 8){        
+                PORTBbits.RB4 = 1;
+             }
             
     }
     

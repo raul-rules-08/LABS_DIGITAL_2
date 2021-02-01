@@ -2531,7 +2531,7 @@ void main(void) {
     if (PORTEbits.RE0 == 1){
         LIGTHS_OUT();
         if(PORTBbits.RB2 == 1){
-            while ( cont < 8 && cont2 < 8) {
+            while ( cont <= 8 && cont2 <= 8) {
                 _delay((unsigned long)((30)*(8000000/4000.0)));
                 if (PORTCbits.RC0 == 1){
                     cont = cont+1;
@@ -2539,26 +2539,42 @@ void main(void) {
                 if (PORTDbits.RD0 == 1){
                     cont2 = cont2+1;
                  }
-            PLAYER_1();
-            PLAYER_2();
+
+
+                if (PORTBbits.RB3 == 0 & PORTBbits.RB4 == 0)
+    {
+        if (PORTBbits.RB3 == 1)
+        {
+            PORTDbits.RD0 = 0;
+       }
+        else if (PORTBbits.RB4 == 1)
+       {
+            PORTCbits.RC0 =0;
+        }
+        else
+        {
+           PLAYER_1();
+           PLAYER_2();
+        }
+    }
             }
 
         }
 
     }
 
+
 }
+
 
     void config (void) {
 
         ANSELH = 0 ;
         ANSEL = 0 ;
         TRISB = 0 ;
-
         TRISD = 0b00000001;
         TRISC = 0b00000001;
-        TRISE = 0b001;
-
+        TRISE = 0b001 ;
         PORTB = 0 ;
         PORTC = 0 ;
         PORTD = 0 ;
@@ -2600,8 +2616,10 @@ void main(void) {
             }
            if (cont == 7){
                 PORTCbits.RC7 = 1;
-            }
-
+             }
+           if (cont == 8){
+                PORTBbits.RB3 = 1;
+             }
     }
 
     void PLAYER_2 (void){
@@ -2627,5 +2645,8 @@ void main(void) {
             if (cont2 == 7){
                 PORTDbits.RD7 = 1;
             }
+           if (cont2 == 8){
+                PORTBbits.RB4 = 1;
+             }
 
     }

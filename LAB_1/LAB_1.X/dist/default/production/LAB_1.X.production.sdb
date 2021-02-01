@@ -13,13 +13,13 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "44 C:\Users\raula\Desktop\LABS_DIGITAL_2\LAB_1\LAB_1.X\SPEED_RACE_8.c
 [v _main main `(v  1 e 1 0 ]
-"69
+"87
 [v _config config `(v  1 e 1 0 ]
-"84
+"100
 [v _LIGTHS_OUT LIGTHS_OUT `(v  1 e 1 0 ]
-"98
+"114
 [v _PLAYER_1 PLAYER_1 `(v  1 e 1 0 ]
-"124
+"142
 [v _PLAYER_2 PLAYER_2 `(v  1 e 1 0 ]
 "228 F:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\PIC16F887.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -90,25 +90,25 @@
 "44
 [v _main main `(v  1 e 1 0 ]
 {
-"67
+"84
 } 0
-"69
+"87
 [v _config config `(v  1 e 1 0 ]
 {
-"82
+"98
 } 0
-"124
+"142
 [v _PLAYER_2 PLAYER_2 `(v  1 e 1 0 ]
 {
-"148
+"169
 } 0
-"98
+"114
 [v _PLAYER_1 PLAYER_1 `(v  1 e 1 0 ]
 {
-"122
+"140
 } 0
-"84
+"100
 [v _LIGTHS_OUT LIGTHS_OUT `(v  1 e 1 0 ]
 {
-"95
+"111
 } 0
